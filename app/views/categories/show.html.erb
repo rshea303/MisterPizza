@@ -1,1 +1,21 @@
-<%= @category.name %>
+<!DOCTYPE html>
+<html>
+  <body>
+    <%= @category.name %>
+    <ul>
+      <% @category.items.each do |item| %>
+        <li>
+        <%= item.name %>
+        </li>
+        <li>
+        <%= item.description %>
+        </li>
+        <li>
+        <%= item.price %>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
+
+
