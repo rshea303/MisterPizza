@@ -20,5 +20,8 @@ describe "an unauthenticated user" do
     
     expect(page).to have_text("this is a pepperoni pizza")
     expect(page).to have_text("this is an everything pizza")
+
+    expect(page).to have_text("$10")
+    expect(page).to have_text("$14")
   end
 end
