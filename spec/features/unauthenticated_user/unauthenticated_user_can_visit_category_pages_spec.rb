@@ -12,7 +12,7 @@ describe "an unauthenticated user" do
     category.items.create!(name: "Everything Pizza", price: "1400", description: "this is an everything pizza", image_file_name: "image")
 
     visit "/"
-    click_on_link_or_button("Pizza")
+    click_link_or_button("Pizza")
 
     expect(current_path).to eq(category_path(category))
     expect(page).to have_text("Pepperoni Pizza")
