@@ -6,14 +6,19 @@
   <% else %>
     <%= link_to "Log In", new_session_path %>
   <% end %>
+  <p>
     <% @categories.each do |category| %>
       <%= link_to category.name, category_path(category) %>
     <% end %>
+  </p>
+  <p>
     <% if session[:cart] %>
       Cart: <%= session[:cart] %>
-      Items in Cart: <%= session[:cart].values.reduce(0, :+) %>
+      <%= link_to "Items in Cart:", cart_items_path %>
+      <%= session[:cart].values.reduce(0, :+) %>
     <% else %>
       Items in Cart: 0
     <% end %>
+  </p>
 </html>
 
