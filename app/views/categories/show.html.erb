@@ -16,6 +16,7 @@
         <li>
         $<%= item.price/100 %>
         </li>
+        <%= button_to "Add To Cart", cart_items_path(item_id: item.id) %>
       <% end %>
     </ul>
   </body>

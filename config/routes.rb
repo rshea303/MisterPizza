@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get "/", to: "welcomes#index"
-
+  resources :cart_items
   resources :categories
   resources :items
   resource :session, only: [:new, :create, :destroy]
