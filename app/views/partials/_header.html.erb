@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <h1>Welcome to Mister Pizza!</h1>
+  <h1><%= link_to "Welcome to Mister Pizza!", root_path %></h1>
   <% @categories.each do |category| %>
     <%= link_to category.name, category_path(category) %>
   <% end %>
