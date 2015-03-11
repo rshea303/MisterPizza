@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
   <h1><%= link_to "Welcome to Mister Pizza!", root_path %></h1>
-  <% @categories.each do |category| %>
-    <%= link_to category.name, category_path(category) %>
+  <% if current_user %>
+    <%= link_to "Log Out", session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Log In", new_session_path %>
   <% end %>
+    <% @categories.each do |category| %>
+      <%= link_to category.name, category_path(category) %>
+    <% end %>
 </html>
 
