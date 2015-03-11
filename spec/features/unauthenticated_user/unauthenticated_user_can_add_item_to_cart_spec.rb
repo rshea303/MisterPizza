@@ -13,7 +13,7 @@ describe "an unauthenticated user" do
     visit "/"
     click_link_or_button("Pizza")
     click_link_or_button("Add To Cart")
-    expect(page).to have_text("Cart: 1")
+    expect(page).to have_text("Items in Cart: 1")
   end
 
 end
