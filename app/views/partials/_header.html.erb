@@ -9,5 +9,11 @@
     <% @categories.each do |category| %>
       <%= link_to category.name, category_path(category) %>
     <% end %>
+    <% if session[:cart] %>
+      Cart: <%= session[:cart] %>
+      Items in Cart: <%= session[:cart].values.reduce(0, :+) %>
+    <% else %>
+      Items in Cart: 0
+    <% end %>
 </html>
 
