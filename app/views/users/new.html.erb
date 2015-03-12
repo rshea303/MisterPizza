@@ -1,0 +1,29 @@
+<!DOCTYPE hmtl>
+<html>
+  <body>
+    <header>
+      <%= render "partials/header" %>
+    </header>
+    <%= form_for @user do |f| %>
+      <p>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </p> 
+      <p>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </p>
+      <p>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </p>
+      <p>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </p>
+      <p>
+        <%= f.submit "Submit New Registration" %>
+      </p>
+    <% end %>
+  </body>
+</html>
