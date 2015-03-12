@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   get "/", to: "welcomes#index"
+
   resources :cart_items
   resources :categories
   resources :items
   resource :session, only: [:new, :create, :destroy]
-  resources :users
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
+  resources :users do 
+    resources :orders
+  end
+
   root 'welcome#index'
 
   # Example of regular route:
