@@ -11,6 +11,6 @@ class CartItemsController < ApplicationController
   end
 
   def index
-    @cart_items = Item.all
+    @cart_items = session[:cart]
   end
 end
