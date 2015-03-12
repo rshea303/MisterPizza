@@ -14,4 +14,9 @@ class CartItemsController < ApplicationController
     @cart_items = session[:cart]
     @categories = Category.all
   end
+
+  def destroy
+    session[:cart].delete(params[:id])
+    redirect_to cart_items_path
+  end
 end
