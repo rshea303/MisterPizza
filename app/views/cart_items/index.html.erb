@@ -14,24 +14,30 @@
         <td>Unit Price</td>
         <td>Quantity</td>
         <td>Sub-Total</td>
+        <td></td>
       </tr>
-      <% @cart_items.each do |id, quantity| %>
-        <% item = Item.find(id.to_i) %>
-        <tr>  
-          <td><%= item.name %></td>
-          <td><%= item.description %></td>
-          <td>$<%= item.price/100 %></td>
-          <td><%= quantity %></td>
-          <td>$<%= (quantity * item.price) / 100 %>
-        </tr>
+      <% if @cart_items.any? %>
+        <% @cart_items.each do |id, quantity| %>
+          <% item = Item.find(id) %>
+          <tr>  
+            <td><%= item.name %></td>
+            <td><%= item.description %></td>
+            <td>$<%= item.price/100 %></td>
+            <td><%= quantity %></td>
+            <td>$<%= (quantity * item.price) / 100 %>
+              <td><%= link_to "Remove From Cart", cart_item_path(item.id), method: :delete %></td>
+          </tr>
+        <% end %>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Total:</td>
+            <td>total goes here</td>
+          </tr>
+      <% else %>
+        There are no items in your cart
       <% end %>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>Total:</td>
-          <td>total goes here</td>
-        </tr>
     </table>
   </body>
 </html>
