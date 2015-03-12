@@ -29,7 +29,8 @@ describe "checkout" do
       expect(page).to have_text("Thank you for your order!")
       expect(current_path).to eq(user_orders_path(@user))
       expect(page).to have_text("Order history for: #{@user.email}")
-      expect(page).to have_link("shipped")
+      expect(page).to have_link("1")
     end
+
   end
 end

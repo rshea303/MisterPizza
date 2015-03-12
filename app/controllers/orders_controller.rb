@@ -6,6 +6,10 @@ class OrdersController < ApplicationController
     @categories = Category.all
   end
 
+  def show
+    @order = Order.find(params[:id])
+  end
+
   def create
     redirect_to user_orders_path(current_user.id)
   end

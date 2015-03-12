@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Order Details</h1>
+    <%= @order.status %>
+    <% @order.line_items.each do |item| %>
+      <%= item.name %>
+      <%= item.quantity %>
+    <% end %>
+  </body>
+</html>
