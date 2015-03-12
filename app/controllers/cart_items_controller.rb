@@ -12,5 +12,6 @@ class CartItemsController < ApplicationController
 
   def index
     @cart_items = session[:cart]
+    @categories = Category.all
   end
 end
