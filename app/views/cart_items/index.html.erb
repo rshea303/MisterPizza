@@ -7,6 +7,12 @@
 
     <h1>Cart Details</h1>
 
+    <% if current_user %>
+      <%= link_to "Checkout", user_orders_path(user_id: current_user.id), method: :post %>
+    <% else %>
+      You must be logged in to checkout
+    <% end %>
+
     <table>
       <tr>
         <td>Name</td>

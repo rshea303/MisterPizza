@@ -30,4 +30,19 @@ RSpec.describe User, :type => :model do
 
     expect(user.valid?).to eq(false)
   end
+
+  it "has an order" do
+    user = User.create!(user_attributes)
+    user.orders.create!(status: "shipped")
+    
+    expect(user.orders.first.status).to eq("shipped")
+  end
+
+  it "has many orders" do
+    user = User.create!(user_attributes)
+    user.orders.create!(status: "shipped")
+    user.orders.create!(status: "cancelled")
+
+    expect(user.orders.size).to eq(2)
+  end
 end

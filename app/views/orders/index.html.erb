@@ -1,0 +1,12 @@
+<!DOCTYPE hmtl>
+<html>
+  <body>
+    <header>
+      <%= render "partials/header" %>
+    </header>
+    <h1>Order history for: <%= @user.email %></h1>
+    <% @orders.each do |order| %>
+      <%= link_to order.status, user_order_path(order, current_user) %>
+    <% end %>
+  </body>
+</html>

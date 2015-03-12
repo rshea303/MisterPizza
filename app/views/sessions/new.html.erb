@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
   <body>
+    <header>
+      <%= render "partials/header" %>
+    </header>
+    <h1>Log In</h1>
     <%= form_for(:session, url: session_path) do |f| %>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-      <%= f.submit "Submit" %>
+      <p>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </p>
+      <p>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </p>
+      <p>
+        <%= f.submit "Submit" %>
+      </p>
     <% end %>
   </body>
 </html>
