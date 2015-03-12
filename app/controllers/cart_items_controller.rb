@@ -9,4 +9,8 @@ class CartItemsController < ApplicationController
 
     redirect_to :back 
   end
+
+  def index
+    @cart_items = session[:cart]
+  end
 end

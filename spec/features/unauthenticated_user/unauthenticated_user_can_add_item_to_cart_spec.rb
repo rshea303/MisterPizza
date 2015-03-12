@@ -32,7 +32,7 @@ describe "an unauthenticated user" do
 
   end
 
-  it "can login and see stored cart" do
+  xit "can login and see stored cart" do
     user1 = User.create!(user_attributes)
     user2 = User.create!(user_attributes(email: "user2@example.com"))
     category = Category.create!(name: "Pizza")
@@ -60,4 +60,5 @@ describe "an unauthenticated user" do
 
     expect(page).to have_text("Items in Cart: 0")
   end
+
 end

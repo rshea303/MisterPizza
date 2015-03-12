@@ -4,21 +4,21 @@
     <header>
       <%= render "partials/header" %>
     </header>
-    <%= @category.name %>
-    <ul>
+    <h1><%= @category.name.upcase %></h1>
       <% @category.items.each do |item| %>
-        <li>
+        <p>
         <%= link_to item.name, item_path(item) %>
-        </li>
-        <li>
+        </p>
+        <p>
         <%= item.description %>
-        </li>
-        <li>
+        </p>
+        <p>
         $<%= item.price/100 %>
-        </li>
+        </p>
+        <p>
         <%= button_to "Add To Cart", cart_items_path(item_id: item.id) %>
+        </p>
       <% end %>
-    </ul>
   </body>
 </html>
 

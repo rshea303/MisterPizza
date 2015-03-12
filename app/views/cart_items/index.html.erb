@@ -1,0 +1,21 @@
+<h1>Cart Details</h1>
+
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Description</td>
+    <td>Unit Price</td>
+    <td>Quantity</td>
+    <td>Sub-Total</td>
+  </tr>
+  <% @cart_items.each do |id, quantity| %>
+    <% item = Item.find(id.to_i) %>
+    <tr>  
+      <td><%= item.name %></td>
+      <td><%= item.description %></td>
+      <td>$<%= item.price/100 %></td>
+      <td><%= quantity %></td>
+      <td>$<%= (quantity * item.price) / 100 %>
+    </tr>
+  <% end %>
+</table>
