@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <h1>Order Details</h1>
-    <%= @order.status %>
-    <% @order.line_items.each do |item| %>
-      <%= item.name %>
-      <%= item.quantity %>
-    <% end %>
-  </body>
-</html>
+<h1>Order Details</h1>
+Order Status: <%= @order.status %>
+<p>
+<table>
+  <tr>
+    <td>Order ID</td>
+    <td>Item ID</td>
+    <td>Item Name</td>
+  </tr>
+  <% @order.line_items.each do |lineitem| %>
+    <tr>
+      <p>
+        <td><%= lineitem.order_id %></td>
+        <td><%= lineitem.item_id %></td>
+        <td><%= lineitem.item_name(lineitem.item_id) %></td>
+      </p>
+    </tr>
+  <% end %>
+</table>
+</p>

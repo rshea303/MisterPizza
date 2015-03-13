@@ -1,0 +1,34 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #5A810C;
+}
+
+a:hover {
+  color: blue;
+}
+
+header {
+  font-family: "Muli", sans-serif;
+}
+
+.login {
+  text-align: right;
+}
+
+.pepperoni a {
+  color: #C33D18;
+}
+
+.pepperoni a:hover {
+  color: yellow;
+}

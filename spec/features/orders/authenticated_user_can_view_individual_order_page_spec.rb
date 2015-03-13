@@ -28,9 +28,9 @@ describe "order" do
     expect(page).to have_text("Order Details")
   end
 
-  xit "can see individual order details" do
+  it "can see individual order details" do
+    @user.orders.line_items.create(quantity: 5)
     click_link_or_button("1")
-    expect(page).to have_text("Order Details")
     expect(page).to have_text("item1")
   end
 end
