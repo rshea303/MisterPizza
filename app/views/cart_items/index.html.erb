@@ -1,49 +1,41 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <header>
-      <%= render "partials/header" %>
-    </header>
+<h1>Cart Details</h1>
+<% if current_user %>
+  <%= link_to "Checkout", user_orders_path(user_id: current_user.id), method: :post %>
+<% else %>
+  <p>
+    You must be logged in to checkout
+  </p>
+<% end %>
 
-    <h1>Cart Details</h1>
-
-    <% if current_user %>
-      <%= link_to "Checkout", user_orders_path(user_id: current_user.id), method: :post %>
-    <% else %>
-      You must be logged in to checkout
-    <% end %>
-
-    <table>
-      <tr>
-        <td>Name</td>
-        <td>Description</td>
-        <td>Unit Price</td>
-        <td>Quantity</td>
-        <td>Sub-Total</td>
-        <td></td>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Description</td>
+    <td>Unit Price</td>
+    <td>Quantity</td>
+    <td>Sub-Total</td>
+    <td></td>
+  </tr>
+  <% if @cart_items.any? %>
+    <% @cart_items.each do |id, quantity| %>
+      <% item = Item.find(id) %>
+      <tr>  
+        <td><%= item.name %></td>
+        <td><%= item.description %></td>
+        <td>$<%= item.price/100 %></td>
+        <td><%= quantity %></td>
+        <td>$<%= (quantity * item.price) / 100 %>
+          <td><%= link_to "Remove From Cart", cart_item_path(item.id), method: :delete %></td>
       </tr>
-      <% if @cart_items.any? %>
-        <% @cart_items.each do |id, quantity| %>
-          <% item = Item.find(id) %>
-          <tr>  
-            <td><%= item.name %></td>
-            <td><%= item.description %></td>
-            <td>$<%= item.price/100 %></td>
-            <td><%= quantity %></td>
-            <td>$<%= (quantity * item.price) / 100 %>
-              <td><%= link_to "Remove From Cart", cart_item_path(item.id), method: :delete %></td>
-          </tr>
-        <% end %>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Total:</td>
-            <td>total goes here</td>
-          </tr>
-      <% else %>
-        There are no items in your cart
-      <% end %>
-    </table>
-  </body>
-</html>
+    <% end %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Total:</td>
+        <td>total goes here</td>
+      </tr>
+  <% else %>
+    There are no items in your cart
+  <% end %>
+</table>

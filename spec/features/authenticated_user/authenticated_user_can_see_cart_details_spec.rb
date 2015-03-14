@@ -16,12 +16,11 @@ describe "an authenticated user" do
     fill_in "session[password]", with: user.password
     click_link_or_button("Submit")
     click_link_or_button("Pizza")
-    2.times do
-      click_link_or_button("Add To Cart")
-    end
+    click_link_or_button("Add To Cart")
     click_link_or_button("Items in Cart:")
+
     expect(page).to have_text("Cheese Pizza")
-    expect(page).to have_text("2")
+    expect(page).to have_text("1")
     expect(page).to have_text("$500")
     expect(page).to have_text("Cart Details")
   end

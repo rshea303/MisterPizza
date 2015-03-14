@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <header>
-      <%= render "partials/header" %>
-    </header>
-    <h1><%= @category.name.upcase %></h1>
-      <% @category.items.each do |item| %>
-        <p>
-        <%= link_to item.name, item_path(item) %>
-        </p>
-        <p>
-        <%= item.description %>
-        </p>
-        <p>
-        $<%= item.price/100 %>
-        </p>
-        <p>
-        <%= button_to "Add To Cart", cart_items_path(item_id: item.id) %>
-        </p>
-      <% end %>
-  </body>
-</html>
+<h1><%= @category.name.upcase %></h1>
+  <% @category.items.each do |item| %>
+    <p>
+      <%= link_to item.name, item_path(item) %>
+    </p>
+    <p>
+      <%= item.description %>
+    </p>
+    <p>
+      $<%= item.price/100 %>
+    </p>
+    <p>
+      <%= button_to "Add To Cart", cart_items_path(item_id: item.id) %>
+    </p>
+  <% end %>
 
 

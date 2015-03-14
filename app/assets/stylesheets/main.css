@@ -6,6 +6,8 @@ html {
 body {
   margin: 0;
   padding: 0;
+  width: 90%;
+  background: beige;
 }
 
 a {
@@ -19,10 +21,12 @@ a:hover {
 
 header {
   font-family: "Muli", sans-serif;
+  margin: 0px 0px 0px 20px;
 }
 
 .login {
   text-align: right;
+  margin: 10px 20px 0px 0px;
 }
 
 .pepperoni a {
