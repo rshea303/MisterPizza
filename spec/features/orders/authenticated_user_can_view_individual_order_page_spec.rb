@@ -23,7 +23,7 @@ describe "order" do
   end
 
   it "can see individual order details" do
-    click_link_or_button("Order Number: 1")
+    click_link_or_button("Order Number: #{@user.orders.first.id}")
     expect(page).to have_text("item1")
     expect(page).to have_text("Order Details")
   end
