@@ -14,6 +14,8 @@ Customer: <strong><%= current_user.first_name %></strong>
     <td>Item ID</td>
     <td>Item Name</td>
     <td>Quantity</td>
+    <td>Unit Price</td>
+    <td>Subtotal</td>
   </tr>
   <% @order.line_items.each do |lineitem| %>
     <tr>
@@ -21,6 +23,8 @@ Customer: <strong><%= current_user.first_name %></strong>
         <td><%= lineitem.item_id %></td>
         <td><%= lineitem.item_name(lineitem.item_id) %></td>
         <td><%= lineitem.quantity %></td>
+        <td>$<%= lineitem.price(lineitem.item_id) %></td>
+        <td>$<%= lineitem.subtotal(lineitem.item_id, lineitem.quantity) %></td>
       </p>
     </tr>
   <% end %>

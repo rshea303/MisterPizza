@@ -33,8 +33,9 @@ describe "checkout" do
       
       expect(page).to have_text("Thank you for your order!")
       expect(current_path).to eq(user_orders_path(@user))
+      save_and_open_page
       expect(page).to have_text("Order history for: #{@user.email}")
-      expect(page).to have_text("Order Number: 1")
+      expect(page).to have_text("Order Number: #{@user.orders.first.id}")
     end
 
   end

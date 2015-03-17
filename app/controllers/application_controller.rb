@@ -26,4 +26,10 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :categories
+
+  def require_log_in
+    unless current_user
+      redirect_to new_session_path, alert: "Please log in first." 
+    end
+  end
 end

@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :require_log_in
+
   def index
     flash[:notice] = "Thank you for your order!"
   end
@@ -15,4 +17,5 @@ class OrdersController < ApplicationController
     @cart.data.clear
     redirect_to user_orders_path(params[:user_id])
   end
+  
 end
