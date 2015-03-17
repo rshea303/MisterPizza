@@ -11,7 +11,7 @@ describe "checkout" do
 
     before do
       @user = User.create!(user_attributes)
-      @user.orders.create!(status: "shipped")
+#      @user.orders.create!(status: "shipped")
       visit "/"
       click_link_or_button("Log In")
       fill_in "session[email]", with: @user.email
@@ -25,11 +25,17 @@ describe "checkout" do
     end
 
     it "can checkout" do
+      expect(@user.orders.count).to eq(0)
       click_link_or_button("Checkout")
+      expect(@user.orders.count).to eq(1)
+      expect(@user.orders.first.line_items.first.quantity).to eq(5)
+      expect(@user.orders.first.items.first.name).to eq("cheese pizza")
+      
       expect(page).to have_text("Thank you for your order!")
       expect(current_path).to eq(user_orders_path(@user))
       expect(page).to have_text("Order history for: #{@user.email}")
-      expect(page).to have_link("shipped")
+      expect(page).to have_text("Order Number: 1")
     end
+
   end
 end

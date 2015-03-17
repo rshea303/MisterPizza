@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   get "/", to: "welcomes#index"
+  get "/logout", to: "sessions#destroy"
 
   resources :cart_items
   resources :categories
   resources :items
+ 
   resource :session, only: [:new, :create, :destroy]
 
   resources :users do 

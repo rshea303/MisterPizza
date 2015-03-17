@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def new
-    @categories = Category.all
   end
 
   def create
@@ -14,7 +13,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    user = User.find(session[:user_id])
     session[:user_id] = nil
     redirect_to root_path
   end

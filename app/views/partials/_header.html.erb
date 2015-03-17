@@ -1,17 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <h1><%= link_to "Welcome to Mister Pizza!", root_path %></h1>
-  <% if current_user %>
-    <%= link_to "Log Out", session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Log In", new_session_path %> |
-    <%= link_to "Register", new_user_path %>
-  <% end %>
-  <p>
-    <% @categories.each do |category| %>
+<header>
+  <div class="login">
+    <% if current_user %>
+      <%= link_to "Log Out", logout_path %>
+    <% else %>
+      <%= link_to "Log In", new_session_path %> |
+      <%= link_to "Register", new_user_path %>
+    <% end %>
+  </div>
+
+  <div class="pepperoni">
+    <h1><%= link_to "Welcome to Mister Pizza!", root_path %></h1>
+  </div>
+
+  <nav>
+    <% categories.each do |category| %>
       <%= link_to category.name, category_path(category) %>
     <% end %>
-  </p>
+  </nav>
+
   <p>
     <% if session[:cart] %>
       Cart: <%= session[:cart] %>
@@ -21,5 +27,4 @@
       Items in Cart: 0
     <% end %>
   </p>
-</html>
-
+</header>

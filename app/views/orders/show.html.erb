@@ -1,0 +1,28 @@
+<h1>Order Details</h1>
+<p>
+Customer: <strong><%= current_user.first_name %></strong>
+          <strong><%= current_user.last_name %></strong>
+<p>
+  Order Number: <%= @order.id %>
+</p>
+<p>
+  Order Status: <%= @order.status %>
+</p>
+<p>
+<table>
+  <tr>
+    <td>Item ID</td>
+    <td>Item Name</td>
+    <td>Quantity</td>
+  </tr>
+  <% @order.line_items.each do |lineitem| %>
+    <tr>
+      <p>
+        <td><%= lineitem.item_id %></td>
+        <td><%= lineitem.item_name(lineitem.item_id) %></td>
+        <td><%= lineitem.quantity %></td>
+      </p>
+    </tr>
+  <% end %>
+</table>
+</p>

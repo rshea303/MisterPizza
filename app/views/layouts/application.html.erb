@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MisterPizza</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Mister Pizza</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%# javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+  </head>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, class: "flash_#{name}" %>  
-<% end %> 
+  <body>
+    <%= render "partials/header" %>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "flash_#{name}" %>  
+    <% end %> 
 
-  
-<%= yield %>
+    
+  <%= yield %>
 
-</body>
+  </body>
 </html>
