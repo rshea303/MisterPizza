@@ -1,8 +1,6 @@
 <h1>Order history for: <%= current_user.email %></h1>
 <% current_user.orders.each do |order| %>
-  <% order.line_items.each do |line_item| %>
     <p>
-    <%= link_to "Order Number: #{line_item.order_id}", user_order_path(current_user.id, line_item.order_id) %>
+    <%= link_to "Order Number: #{order.id}", user_order_path(current_user.id, order.id) %>
     </p>
-  <% end %>
 <% end %>

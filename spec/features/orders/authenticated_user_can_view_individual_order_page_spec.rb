@@ -8,7 +8,6 @@ describe "order" do
     @category.items.create!(name: "item1", description: "item1desc", price: 5000, image_file_name: "defaultitem1")
     @category2.items.create!(name: "item2", description: "item2desc", price: 5000, image_file_name: "defaultitem2")
     @user = User.create!(user_attributes)
-    @user.orders.create!(status: "shipped")
     visit "/"
     click_link_or_button("Log In")
     fill_in "session[email]", with: @user.email
@@ -24,13 +23,8 @@ describe "order" do
   end
 
   it "can see individual order details" do
-    click_link_or_button("1")
-    expect(page).to have_text("Order Details")
-  end
-
-  it "can see individual order details" do
-    @user.orders.line_items.create(quantity: 5)
-    click_link_or_button("1")
+    click_link_or_button("Order Number: 1")
     expect(page).to have_text("item1")
+    expect(page).to have_text("Order Details")
   end
 end
