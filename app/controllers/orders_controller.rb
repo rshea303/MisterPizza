@@ -22,6 +22,9 @@ class OrdersController < ApplicationController
 private
 
   def require_correct_user
+    # This works, but it'd be better to...
+    # Look into CanCan
+    # Or Roll your own authorization
     unless current_user.id == params[:user_id].to_i
       flash[:alert] = "Unauthorized access!"
       redirect_to root_path
