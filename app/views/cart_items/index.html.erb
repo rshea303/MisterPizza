@@ -1,11 +1,11 @@
 <h1>Cart Details</h1>
-<% if current_user %>
-  <%= link_to "Checkout", user_orders_path(user_id: current_user.id), method: :post %>
-<% else %>
-  <p>
-    You must be logged in to checkout
-  </p>
-<% end %>
+<p>
+  <% if current_user %>
+    <%= button_to "Checkout", user_orders_path(user_id: current_user.id) %>
+  <% else %>
+      You must be logged in to checkout
+  <% end %>
+</p>
 
 <table>
   <tr>
@@ -16,8 +16,8 @@
     <td>Sub-Total</td>
     <td></td>
   </tr>
-  <% if @cart_items.any? %>
-    <% @cart_items.each do |id, quantity| %>
+  <% if @cart.any? %>
+    <% @cart.each do |id, quantity| %>
       <% item = Item.find(id) %>
       <tr>  
         <td><%= item.name %></td>
@@ -25,7 +25,7 @@
         <td>$<%= item.price/100 %></td>
         <td><%= quantity %></td>
         <td>$<%= (quantity * item.price) / 100 %>
-          <td><%= link_to "Remove From Cart", cart_item_path(item.id), method: :delete %></td>
+        <td><%= button_to "Remove From Cart", cart_item_path(item.id), method: :delete %></td>
       </tr>
     <% end %>
       <tr>
@@ -36,6 +36,8 @@
         <td>total goes here</td>
       </tr>
   <% else %>
-    There are no items in your cart
+    <p>
+      There are no items in your cart
+    </p>
   <% end %>
 </table>

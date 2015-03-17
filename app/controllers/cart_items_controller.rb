@@ -7,12 +7,16 @@ class CartItemsController < ApplicationController
   end
 
   def index
-    @cart_items = session[:cart]
+    @cart = session[:cart] 
     @categories = Category.all
   end
 
   def destroy
     session[:cart].delete(params[:id])
     redirect_to cart_items_path
+  end
+
+  def show
+    fail
   end
 end
