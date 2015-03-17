@@ -20,4 +20,10 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :cart
+
+  def categories
+    Category.all
+  end
+
+  helper_method :categories
 end

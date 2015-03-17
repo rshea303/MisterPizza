@@ -9,4 +9,5 @@ class Cart < ActiveRecord::Base
     @data[item_id] ||= 0
     @data[item_id] += 1
   end
+
 end
