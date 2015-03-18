@@ -28,7 +28,6 @@ describe "users" do
 
     visit user_orders_path(@user) 
     expect(page).to have_text("Unauthorized access!")
-    save_and_open_page
     expect(current_path).to eq(root_path)
   end
 end
