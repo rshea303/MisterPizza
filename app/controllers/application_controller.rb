@@ -32,4 +32,9 @@ class ApplicationController < ActionController::Base
       redirect_to login_path, alert: "Please log in first." 
     end
   end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, alert: "You are not authorized to access this page"
+  end
+
 end

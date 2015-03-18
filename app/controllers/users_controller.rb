@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authorize, only: [:show, :index]
 
   def show
-
+    authorize! :read, current_user
   end
 
   def new
