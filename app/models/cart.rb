@@ -14,4 +14,8 @@ class Cart < ActiveRecord::Base
     @data[item_id] += 1
   end
 
+  def decrease_quantity(item_id)
+    @data[item_id] -= 1
+  end
+
 end

@@ -22,4 +22,11 @@ describe "user" do
     click_link_or_button("Increase Quantity")
     expect(page).to have_text("3")
   end
+
+  it "can decrease quantity of cart item" do
+    expect(page).to have_text("2")
+    click_link_or_button("Decrease Quantity")
+    expect(page).to have_text("1")
+  end
+ 
 end
