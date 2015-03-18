@@ -9,3 +9,6 @@
 <p>
   Email: <%= current_user.email %>
 </p>
+<p>
+  <%= link_to "Order History", user_orders_path(current_user) %>
+  </p>
