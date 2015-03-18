@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authorize, only: [:show, :index]
 
   def show
 
@@ -22,4 +23,12 @@ private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password)
   end
+
+  def authorize
+    if current_user.nil?
+      redirect_to login_path, alert: "Denied access"
+    end
+  end
+
+
 end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get "/", to: "welcomes#index"
   get "/logout", to: "sessions#destroy"
+  get "/login", to: "sessions#new"
+  get "/", to: "welcomes#index"
 
   resources :cart_items
   resources :categories
