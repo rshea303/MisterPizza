@@ -9,6 +9,7 @@ describe "user" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       
     visit "/"
+    
     click_link_or_button("pizza")
     2.times do
       click_link_or_button("Add To Cart")
