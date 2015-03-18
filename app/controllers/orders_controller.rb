@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   before_action :require_log_in
-  before_action :require_correct_user
+  before_action :authorize
+
+  #before_action :require_correct_user
   
   def index
     flash[:notice] = "Thank you for your order!"
@@ -19,17 +21,12 @@ class OrdersController < ApplicationController
     redirect_to user_orders_path(params[:user_id])
   end
  
+#private
 private
-
-  def require_correct_user
-    # This works, but it'd be better to...
-    # Look into CanCan
-    # Or Roll your own authorization
+  def authorize
     unless current_user.id == params[:user_id].to_i
-      flash[:alert] = "Unauthorized access!"
-      redirect_to root_path
+     redirect_to root_path, alert: "You are not authorized to access this page"
     end
   end
-
  
 end
