@@ -9,6 +9,12 @@ class CartItemsController < ApplicationController
   def index
     @cart = session[:cart] 
   end
+  
+  def update
+    @cart.increase_quantity(params[:id])
+    session[:cart] = @cart.data
+    redirect_to :back
+  end
 
   def destroy
     session[:cart].delete(params[:id])
