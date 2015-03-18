@@ -19,14 +19,22 @@ describe "user" do
 
   it "can increase quantity of cart item" do
     expect(page).to have_text("2")
-    click_link_or_button("Increase Quantity")
+    click_link_or_button("+")
     expect(page).to have_text("3")
   end
 
   it "can decrease quantity of cart item" do
     expect(page).to have_text("2")
-    click_link_or_button("Decrease Quantity")
+    click_link_or_button("-")
     expect(page).to have_text("1")
+  end
+  
+  it "cart item destroyed when decreased to 0" do
+    click_link_or_button("+")
+    3.times do
+      click_link_or_button("-")
+    end
+    expect(page).not_to have_button("Remove From Cart")
   end
  
 end

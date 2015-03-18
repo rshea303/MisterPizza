@@ -14,9 +14,6 @@
     <td>Unit Price</td>
     <td>Quantity</td>
     <td>Sub-Total</td>
-    <td></td>
-    <td></td>
-    <td></td>
   </tr>
 
     <% @cart.each do |id, quantity| %>
@@ -26,8 +23,8 @@
         <td>$<%= item.price/100 %></td>
         <td><%= quantity %></td>
         <td>$<%= (quantity * item.price) / 100 %>
-        <td><%= button_to "Increase Quantity", cart_item_path(item.id, 1), method: :put  %></td>
-        <td><%= button_to "Decrease Quantity", cart_item_path(item.id, 0), method: :put %></td>
+        <td><%= button_to "+", cart_item_path(item.id, 1), method: :put  %></td>
+        <td><%= button_to "-", cart_item_path(item.id, 0), method: :put %></td>
         <td><%= button_to "Remove From Cart", cart_item_path(item.id), method: :delete %></td>
       </tr>
     <% end %>

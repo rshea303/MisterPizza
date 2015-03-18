@@ -14,8 +14,11 @@ class CartItemsController < ApplicationController
     if params[:format] == "1"
       @cart.increase_quantity(params[:id])
       session[:cart] = @cart.data
-    elsif params[:format] == "0"
+    elsif
       @cart.decrease_quantity(params[:id])
+      if @cart.data[params[:id]] == 0
+        session[:cart].delete(params[:id])
+      end
       session[:cart] = @cart.data
     end
     redirect_to :back
