@@ -29,7 +29,12 @@ class ApplicationController < ActionController::Base
 
   def require_log_in
     unless current_user
-      redirect_to new_session_path, alert: "Please log in first." 
+      redirect_to login_path, alert: "Please log in first." 
     end
   end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, alert: "You are not authorized to access this page"
+  end
+
 end

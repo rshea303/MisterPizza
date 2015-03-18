@@ -27,8 +27,7 @@ describe "users" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user2)
 
     visit user_orders_path(@user) 
-    expect(page).to have_text("Unauthorized access!")
-    save_and_open_page
+    expect(page).to have_text("You are not authorized to access this page")
     expect(current_path).to eq(root_path)
   end
 end
