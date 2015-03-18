@@ -11,8 +11,13 @@ class CartItemsController < ApplicationController
   end
   
   def update
-    @cart.increase_quantity(params[:id])
-    session[:cart] = @cart.data
+    if params[:format] == "1"
+      @cart.increase_quantity(params[:id])
+      session[:cart] = @cart.data
+    elsif params[:format] == "0"
+      @cart.decrease_quantity(params[:id])
+      session[:cart] = @cart.data
+    end
     redirect_to :back
   end
 
