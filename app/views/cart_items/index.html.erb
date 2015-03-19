@@ -2,7 +2,7 @@
 <p>
   <% if current_user && cart != {} %>
     <%= button_to "Checkout", user_orders_path(user_id: current_user.id) %>
-  <% else %>
+  <% elsif current_user.nil? && cart != {} %>
     <h3>You must be logged in to checkout</h3>
   <% end %>
 </p>
