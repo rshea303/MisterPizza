@@ -7,7 +7,6 @@ class CartItemsController < ApplicationController
   end
 
   def index
-    @cart = session[:cart] 
   end
   
   def update

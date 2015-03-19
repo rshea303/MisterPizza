@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   before_action :load_cart
 
   def cart
-    @cart
+    @cart.data
   end
 
   helper_method :cart
