@@ -19,7 +19,7 @@
     <% @cart.each do |id, quantity| %>
       <% item = Item.find(id) %>
       <tr>  
-        <td><%= item.name %></td>
+        <td><%= link_to item.name, item_path(item) %></td>
         <td>$<%= item.price/100 %></td>
         <td><%= quantity %></td>
         <td>$<%= (quantity * item.price) / 100 %>
