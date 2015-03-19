@@ -11,6 +11,7 @@ describe "an unauthenticatedr" do
     fill_in "user[password]", with: "password"
     click_link_or_button("Submit New Registration")
     expect(current_path).to eq(root_path)
+
     click_link_or_button("Log In")
     fill_in "session[email]", with: "test@example.com"
     fill_in "session[password]", with: "password"

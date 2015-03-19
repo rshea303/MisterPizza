@@ -2,8 +2,6 @@ class OrdersController < ApplicationController
   before_action :require_log_in
   before_action :authorize
 
-  #before_action :require_correct_user
-  
   def index
     flash[:notice] = "Thank you for your order!"
   end

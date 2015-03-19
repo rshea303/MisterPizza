@@ -10,6 +10,20 @@ class Cart < ActiveRecord::Base
     @data[item_id] += 1
   end
 
+  def update_item_count(session_cart, item_id, params_format)
+    @cart = Cart.new(session_cart)
+    if params_format == "1"
+      @cart.increase_quantity(item_id)
+      session_cart = @cart.data
+    elsif 
+      @cart.decrease_quantity(item_id)
+        if @cart.data[item_id] == 0
+          session_cart.delete(item_id)
+        end
+      session_cart = @cart.data
+    end
+  end
+
   def increase_quantity(item_id)
     @data[item_id] += 1
   end
