@@ -21,7 +21,7 @@ Customer: <strong><%= current_user.first_name %></strong>
     <tr>
       <p>
         <td><%= lineitem.item_id %></td>
-        <td><%= lineitem.item_name(lineitem.item_id) %></td>
+        <td><%= link_to lineitem.item_name(lineitem.item_id), item_path(lineitem.item) %></td>
         <td><%= lineitem.quantity %></td>
         <td>$<%= lineitem.price(lineitem.item_id) %></td>
         <td>$<%= lineitem.subtotal(lineitem.item_id, lineitem.quantity) %></td>
