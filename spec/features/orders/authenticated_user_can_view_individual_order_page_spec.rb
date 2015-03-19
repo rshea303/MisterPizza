@@ -7,10 +7,7 @@ describe "order" do
     @category.items.create!(name: "item1", description: "item1desc", price: 5000, image_file_name: "defaultitem1")
     @user = User.create!(user_attributes)
     visit "/"
-    click_link_or_button("Log In")
-    fill_in "session[email]", with: @user.email
-    fill_in "session[password]", with: @user.password
-    click_link_or_button("Submit")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     
     click_link_or_button("pizza")
     5.times do

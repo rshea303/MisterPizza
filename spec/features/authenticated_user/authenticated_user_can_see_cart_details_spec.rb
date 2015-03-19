@@ -10,11 +10,8 @@ describe "an authenticated user" do
                            description: "really good",
                            image_file_name: "default image"
                           )
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit "/"
-    click_link_or_button("Log In")
-    fill_in "session[email]", with: user.email
-    fill_in "session[password]", with: user.password
-    click_link_or_button("Submit")
     click_link_or_button("Pizza")
     click_link_or_button("Add To Cart")
     click_link_or_button("Items in Cart:")

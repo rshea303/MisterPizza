@@ -11,16 +11,7 @@ class CartItemsController < ApplicationController
   end
   
   def update
-    if params[:format] == "1"
-      @cart.increase_quantity(params[:id])
-      session[:cart] = @cart.data
-    elsif
-      @cart.decrease_quantity(params[:id])
-      if @cart.data[params[:id]] == 0
-        session[:cart].delete(params[:id])
-      end
-      session[:cart] = @cart.data
-    end
+    @cart.update_item_count(session[:cart], params[:id], params[:format])
     redirect_to :back
   end
 

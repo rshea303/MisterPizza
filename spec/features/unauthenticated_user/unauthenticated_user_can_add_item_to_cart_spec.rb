@@ -42,10 +42,7 @@ describe "an unauthenticated user" do
                            image_file_name: "default image"
                           )
     visit "/"
-    click_link_or_button("Log In")
-    fill_in "session[email]", with: user2.email
-    fill_in "session[password]", with: user2.password
-    click_link_or_button("Submit")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user2)
     click_link_or_button("Pizza")
     2.times do
       click_link_or_button("Add To Cart")
@@ -53,11 +50,8 @@ describe "an unauthenticated user" do
     expect(page).to have_text("Items in Cart: 2")
     click_link_or_button("Log Out")
 
-    click_link_or_button("Log In")
-    fill_in "session[email]", with: user1.email
-    fill_in "session[password]", with: user1.password
-    click_link_or_button("Submit")
-
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
+    visit "/"
     expect(page).to have_text("Items in Cart: 0")
   end
 
