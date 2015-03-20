@@ -9,4 +9,10 @@ class Order < ActiveRecord::Base
       LineItem.create(item_id: item_id, quantity: quantity)
     end
   end
+
+  def total_price
+    line_items.map do |line_item|
+      Item.find(line_item.item_id).price * line_item.quantity
+    end.reduce(0, :+)/100
+  end
 end

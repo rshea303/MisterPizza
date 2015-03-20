@@ -29,4 +29,7 @@ Customer: <strong><%= current_user.first_name %></strong>
     </tr>
   <% end %>
 </table>
+    <p>
+      Total Price: $<td><%= @order.total_price %></td>
+    </p>
 </p>
