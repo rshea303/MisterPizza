@@ -8,7 +8,7 @@
 </p>
 
 <table>
-  <% if cart.any? %>
+  <% if cart.data.any? %>
   <tr>
     <td>Name</td>
     <td>Unit Price</td>
@@ -16,7 +16,7 @@
     <td>Sub-Total</td>
   </tr>
 
-    <% cart.each do |id, quantity| %>
+    <% cart.data.each do |id, quantity| %>
       <% item = Item.find(id) %>
       <tr>  
         <td><%= link_to item.name, item_path(item) %></td>
@@ -33,7 +33,7 @@
         <td></td>
         <td></td>
         <td>Total:</td>
-        <td>total price goes here </td>
+        <td>$<%= cart.total_price %></td>
       </tr>
   <% else %>
     <p>
