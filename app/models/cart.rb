@@ -32,4 +32,10 @@ class Cart < ActiveRecord::Base
     @data[item_id] -= 1
   end
 
+  def total_price
+    data.map do |id, quantity|
+      Item.find(id).price * quantity
+    end.reduce(0, :+)/100
+  end
+
 end
