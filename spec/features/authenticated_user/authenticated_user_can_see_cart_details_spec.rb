@@ -10,15 +10,23 @@ describe "an authenticated user" do
                            description: "really good",
                            image_file_name: "default image"
                           )
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit "/"
-    click_link_or_button("Pizza")
-    click_link_or_button("Add To Cart")
-    click_link_or_button("Items in Cart:")
+    sign_in(user)
+    click_on("Pizza")
+    click_on("Add To Cart")
+    click_on("Items in Cart:")
 
     expect(page).to have_text("Cheese Pizza")
     expect(page).to have_text("1")
     expect(page).to have_text("$500")
     expect(page).to have_text("Cart Details")
   end
+
+  def sign_in(user)
+    visit login_path
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_on "Submit"
+  end
+
 end 
