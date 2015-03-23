@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  before_action :authorize, only: [:show, :index]
+  before_action :authorize, only: [:show]
 
   def show
-    authorize! :read, current_user
   end
 
   def new
@@ -25,10 +24,13 @@ private
   end
 
   def authorize
-    if current_user.nil?
+    if current_user
+      unless current_user.id == params[:id].to_i
+        redirect_to login_path, alert: "Denied access"
+      end
+    else
       redirect_to login_path, alert: "Denied access"
     end
   end
-
 
 end

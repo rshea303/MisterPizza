@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :items
  
-  resource :session, only: [:new, :create, :destroy]
+  resource :session, only: [:create]
 
   resources :users do 
     resources :orders

@@ -9,20 +9,16 @@ describe "checkout" do
       user = User.create!(user_attributes)
       sign_in(user)
       visit "/"
-      click_link_or_button("pizza")
+      click_on("pizza")
       5.times do
-        click_link_or_button("Add To Cart")
+        click_on("Add To Cart")
       end
 
-      click_link_or_button("Items in Cart")
-      expect(user.orders.count).to eq(0)
-      click_link_or_button("Checkout")
-      expect(user.orders.count).to eq(1)
-      expect(user.orders.first.line_items.first.quantity).to eq(5)
-      expect(user.orders.first.items.first.name).to eq("cheese pizza")
-      
-      expect(page).to have_text("Thank you for your order!")
+      click_on("Items in Cart")
+      click_on("Checkout")
       expect(current_path).to eq(user_orders_path(user))
+      expect(page).to have_text("Thank you for your order!")
+      expect(user.orders.count).to eq(1)
       expect(page).to have_text("Order history for: #{user.email}")
       expect(page).to have_text("Order Number: #{user.orders.first.id}")
     end

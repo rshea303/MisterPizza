@@ -5,15 +5,23 @@ describe "an item" do
   it "has a link to each show page" do
     category = Category.create!(name: "New Category")
     category.items.create!(name: "new item", description: "desc", price: 1111, image_file_name: "default")
-    @user = User.create!(user_attributes)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    user = User.create!(user_attributes)
     visit "/"
-    click_link_or_button("New Category")
-    click_link_or_button("Add To Cart")
-    click_link_or_button("Items in Cart")
-    click_link_or_button("Checkout")
-    click_link_or_button("Order Number: #{@user.orders.first.id}")
-    click_link_or_button("new item")
+    sign_in(user)
+    
+    click_on("New Category")
+    click_on("Add To Cart")
+    click_on("Items in Cart")
+    click_on("Checkout")
+    click_on("Order Number: #{user.orders.first.id}")
+    click_on("new item")
     expect(current_path).to eq(item_path(category.items.first.id))
+  end
+
+  def sign_in(user)
+    visit login_path
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_on "Submit"
   end
 end
