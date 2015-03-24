@@ -32,8 +32,7 @@ describe "order" do
     click_on("Items in Cart")
     click_on("Checkout")
     click_on("Log Out")
-    expect(current_path).to eq(logout_path)
-    user2 = User.create!(user_attributes)
+    user2 = User.create!(user_attributes(email: "user2@example.com"))
     visit "/"
     sign_in(user2)
 
