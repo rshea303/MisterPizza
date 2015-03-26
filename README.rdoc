@@ -1,2 +1,6 @@
 Heroku link:
 https://git.heroku.com/morning-inlet-6751.git
+
+MisterPizza is an independent project in which I created a fully functioning single tenant ecommerce site for a ficticuous restaurant.
+
+
