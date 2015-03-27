@@ -2,7 +2,7 @@
 <div class="item">
   <% @category.items.each do |item| %>
     <p>
-      <%= image_tag item.image.url %>
+      <%= image_tag item.image.url(:medium) %>
     </p>
     <p>
       <%= link_to item.name, item_path(item) %>
