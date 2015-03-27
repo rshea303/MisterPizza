@@ -6,6 +6,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'support/attributes'
+require 'support/test_helpers'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
