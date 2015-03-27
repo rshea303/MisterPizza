@@ -22,25 +22,25 @@ class Items
   def make_items
     [
       Item.create(name: "cheese pizza", description: "delicous cheesy pizza", price: "1000", image: open(path  + "cheese_pizza.jpg"), category_id: 1),
-      Item.create!(name: "pepperoni pizza", description: "delicous cheesy pizza", price: "1100", category_id: 1),
-      Item.create(name: "hawaiian pizza", description: "delicous cheesy pizza", price: "1200", category_id: 1),
-      Item.create(name: "meatball pizza", description: "delicous cheesy pizza", price: "1300", category_id: 1),
+      Item.create(name: "pepperoni pizza", description: "delicous cheesy pizza", price: "1100", image: open(path + "pepperoni_pizza.jpg"), category_id: 1),
+      Item.create(name: "hawaiian pizza", description: "delicous cheesy pizza", price: "1200", image: open(path + "hawaiian_pizza.jpg"), category_id: 1),
+      Item.create(name: "meatball pizza", description: "delicous cheesy pizza", price: "1300", image: open(path + "meatball_pizza.jpg"), category_id: 1),
       Item.create(name: "vegetarian pizza", description: "delicous cheesy pizza", price: "1400", category_id: 1),
-      Item.create(name: "cheese calzone", description: "delicous calzone", price: "1600", category_id: 2),
-      Item.create(name: "pepperonie calzone", description: "delicous calzone", price: "1700", category_id: 2),
-      Item.create(name: "meatball calzone", description: "delicous calzone", price: "1800", category_id: 2),
-      Item.create(name: "vegetarian calzone", description: "delicous calzone", price: "1900", category_id: 2),
-      Item.create(name: "everything calzone", description: "delicous calzone", price: "2000", category_id: 2),
-      Item.create(name: "baked ziti", description: "delicous ziti", price: "1250", category_id: 3), 
-      Item.create(name: "spaghetti", description: "delicous spaghetti", price: "1350", category_id: 3),
-      Item.create(name: "ravioli", description: "delicous ravioli", price: "1450", category_id: 3),
-      Item.create(name: "ice cream", description: "delicous ice cream", price: "1000", category_id: 4),
-      Item.create(name: "cake", description: "delicous cake", price: "2000", category_id: 4),
-      Item.create(name: "cupcake", description: "delicous cupcake", price: "3000", category_id: 4),
-      Item.create(name: "soda", description: "delicous soda", price: "1000", category_id: 5),
-      Item.create(name: "lemonade", description: "delicous lemonade", price: "1100", category_id: 5),
-      Item.create(name: "iced tea", description: "delicous iced tea", price: "1200", category_id: 5),
-      Item.create(name: "bottled water", description: "delicous bottled water", price: "1300", category_id: 5)
+      Item.create(name: "cheese calzone", description: "delicous calzone", price: "1600", image: open(path + "cheese_calzone.jpg"), category_id: 2),
+      Item.create(name: "pepperoni calzone", description: "delicous calzone", price: "1700", image: open(path + "pepperoni_calzone.jpg"), category_id: 2),
+      Item.create(name: "meatball calzone", description: "delicous calzone", price: "1800", image: open(path + "meatball_calzone.jpg"), category_id: 2),
+      Item.create(name: "vegetarian calzone", description: "delicous calzone", price: "1900", image: open(path + "vegetarian_calzone.jpg"), category_id: 2),
+      Item.create(name: "everything calzone", description: "delicous calzone", price: "2000", image: open(path + "everything_calzone.jpg"), category_id: 2),
+      Item.create(name: "baked ziti", description: "delicous ziti", price: "1250", image: open(path + "baked_ziti.jpg"), category_id: 3), 
+      Item.create(name: "spaghetti", description: "delicous spaghetti", price: "1350", image: open(path + "spaghetti.jpg"), category_id: 3),
+      Item.create(name: "ravioli", description: "delicous ravioli", price: "1450", image: open(path + "ravioli.jpg"), category_id: 3),
+      Item.create(name: "ice cream", description: "delicous ice cream", price: "1000", image: open(path + "ice_cream.jpg"), category_id: 4),
+      Item.create(name: "cake", description: "delicous cake", price: "2000", image: open(path + "cake.jpg"), category_id: 4),
+      Item.create(name: "cupcake", description: "delicous cupcake", price: "3000", image: open(path + "cupcake.jpg"), category_id: 4),
+      Item.create(name: "soda", description: "delicous soda", price: "1000", image: open(path + "soda.jpg"), category_id: 5),
+      Item.create(name: "lemonade", description: "delicous lemonade", price: "1100", image: open(path + "lemonade.jpg"), category_id: 5),
+      Item.create(name: "iced tea", description: "delicous iced tea", price: "1200", image: open(path + "iced_tea.jpg"), category_id: 5),
+      Item.create(name: "bottled water", description: "delicous bottled water", price: "1300", image: open(path + "water.jpg"), category_id: 5)
     ]
   end
 end
