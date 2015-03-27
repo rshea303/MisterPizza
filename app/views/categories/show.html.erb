@@ -2,6 +2,9 @@
 <div class="item">
   <% @category.items.each do |item| %>
     <p>
+      <%= image_tag item.image.url %>
+    </p>
+    <p>
       <%= link_to item.name, item_path(item) %>
     </p>
     <p>

@@ -15,9 +15,13 @@ end
 
 
 class Items
+  def path
+    "app/assets/images/"
+  end
+
   def make_items
     [
-      Item.create(name: "cheese pizza", description: "delicous cheesy pizza", price: "1000", image_file_name: "default", category_id: 1),
+      Item.create(name: "cheese pizza", description: "delicous cheesy pizza", price: "1000", image: open(path  + "cheese_pizza.jpg"), category_id: 1),
       Item.create(name: "pepperoni pizza", description: "delicous cheesy pizza", price: "1100", image_file_name: "default", category_id: 1),
       Item.create(name: "hawaiian pizza", description: "delicous cheesy pizza", price: "1200", image_file_name: "default", category_id: 1),
       Item.create(name: "meatball pizza", description: "delicous cheesy pizza", price: "1300", image_file_name: "default", category_id: 1),
