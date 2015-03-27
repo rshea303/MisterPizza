@@ -36,3 +36,12 @@ header {
 .pepperoni a:hover {
   color: blue;
 }
+
+/* category page */
+
+.item-display {
+  float: left;
+  margin: 5px;
+  padding: 5px;
+  width: 25%;
+}

@@ -1,21 +1,23 @@
 <h1><%= @category.name.upcase %></h1>
 <div class="item">
   <% @category.items.each do |item| %>
-    <p>
-      <%= image_tag item.image.url(:medium) %>
-    </p>
-    <p>
-      <%= link_to item.name, item_path(item) %>
-    </p>
-    <p>
-      <%= item.description %>
-    </p>
-    <p>
-      $<%= item.price/100 %>
-    </p>
-    <p>
-      <%= button_to "Add To Cart", cart_items_path(item_id: item.id) %>
-    </p>
+    <div class="item-display">
+      <p>
+        <%= image_tag item.image.url(:thumb) %>
+      </p>
+      <p>
+        <%= link_to item.name, item_path(item) %>
+      </p>
+      <p>
+        <%= item.description %>
+      </p>
+      <p>
+        $<%= item.price/100 %>
+      </p>
+      <p>
+        <%= button_to "Add To Cart", cart_items_path(item_id: item.id) %>
+      </p>
+    </div>
   <% end %>
 </div>
 
