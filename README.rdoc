@@ -1,6 +1,10 @@
 Heroku link:
-https://git.heroku.com/morning-inlet-6751.git
+https://misterpizza.herokuapp.com
 
 MisterPizza is an independent project in which I created a fully functioning single tenant ecommerce site for a ficticuous restaurant.
+
+Styling of the site was not a priority for this project and was created with only HTML/CSS, and not other templates like bootstrap or foundation.
+
+
 
 
