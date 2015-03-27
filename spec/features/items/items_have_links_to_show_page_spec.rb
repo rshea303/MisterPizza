@@ -18,10 +18,4 @@ describe "an item" do
     expect(current_path).to eq(item_path(category.items.first.id))
   end
 
-  def sign_in(user)
-    visit login_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_on "Submit"
-  end
 end
