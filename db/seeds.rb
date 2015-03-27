@@ -22,9 +22,9 @@ class Items
   def make_items
     [
       Item.create(name: "cheese pizza", description: "delicous cheesy pizza", price: "1000", image: open(path  + "cheese_pizza.jpg"), category_id: 1),
-      Item.create!(name: "pepperoni pizza", description: "delicous cheesy pizza", price: "1100", category_id: 1),
-      Item.create(name: "hawaiian pizza", description: "delicous cheesy pizza", price: "1200", category_id: 1),
-      Item.create(name: "meatball pizza", description: "delicous cheesy pizza", price: "1300", category_id: 1),
+      Item.create(name: "pepperoni pizza", description: "delicous cheesy pizza", price: "1100", image: open(path + "pepperoni_pizza.jpg"), category_id: 1),
+      Item.create(name: "hawaiian pizza", description: "delicous cheesy pizza", price: "1200", image: open(path + "hawaiian_pizza.jpg"), category_id: 1),
+      Item.create(name: "meatball pizza", description: "delicous cheesy pizza", price: "1300", image: open(path + "meatball_pizza.jpg"), category_id: 1),
       Item.create(name: "vegetarian pizza", description: "delicous cheesy pizza", price: "1400", category_id: 1),
       Item.create(name: "cheese calzone", description: "delicous calzone", price: "1600", category_id: 2),
       Item.create(name: "pepperonie calzone", description: "delicous calzone", price: "1700", category_id: 2),

@@ -1,2 +1,9 @@
-<%= @item.name %>
-<%= @item.description %>
+<p>
+  <%= image_tag @item.image.url(:medium) %>
+</p>
+<p>
+  <%= @item.name %>
+</p>
+<p>
+  <%= @item.description %>
+</p>

@@ -28,11 +28,6 @@ RSpec.describe Item, :type => :model do
       expect(item.valid?).to eq(false)
     end
 
-    it "is invalid without a image" do
-      item = Item.new(item_attributes(image_file_name: nil))
-
-      expect(item.valid?).to eq(false)
-    end
   end
 
   context "belongs to category" do
