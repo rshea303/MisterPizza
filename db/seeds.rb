@@ -45,6 +45,15 @@ class Items
   end
 end
 
+class Users
+  def make_users
+    User.create(first_name: "user1_first_name", last_name: "user1_last_name", email: "user1@example.com", password: "password")
+    User.create(first_name: "user2_first_name", last_name: "user2_last_name", email: "user2@example.com", password: "password")
+    User.create(first_name: "user3_first_name", last_name: "user3_last_name", email: "user3@example.com", password: "password", admin: true)
+  end
+end
+
 
 Categories.new.make_categories
 Items.new.make_items
+Users.new.make_users
