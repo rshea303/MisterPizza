@@ -21,7 +21,6 @@
 
   <p>
     <% if session[:cart] %>
-      Cart Test: <%= session[:cart] %>
       <%= link_to "Items in Cart:", cart_items_path %>
       <%= session[:cart].values.reduce(0, :+) %>
     <% else %>
