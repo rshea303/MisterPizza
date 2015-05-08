@@ -36,6 +36,8 @@ gem "paperclip", "~> 4.2"
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'pry-toys'
+  gem 'pry-rails'
   gem 'launchy'
   gem 'pry'
   gem 'capybara'
@@ -47,7 +49,6 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
 end
 
 group :production do
